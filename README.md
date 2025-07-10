@@ -125,48 +125,25 @@ chmod -R 775 /opt/sonarqube
 cd /opt/sonarqube/bin/linux-x86-64
 ./sonar.sh start
 ```
-<img width="1200" height="67" alt="image" src="https://github.com/user-attachments/assets/d4ce3600-e7ea-48ec-a01e-0b10d0dcbebc" />
-<img width="1600" height="124" alt="image" src="https://github.com/user-attachments/assets/a606d5d0-67ee-4121-b95a-d58dfb55b14d" />
-<img width="1200" height="130" alt="image" src="https://github.com/user-attachments/assets/19e3eb39-1e22-4cec-bbda-e82ab1ca207c" />
 
-by default, Soanr qube runs on port 9000. Open the browser and paste the PublicIp address of the ec2 instance along with the port number. Hit enter. 
-<img width="1800" height="134" alt="image" src="https://github.com/user-attachments/assets/eb074952-a77d-419e-9de2-402beea3631a" />
-
-Sonar qube is starting..... 
-<img width="400" height="183" alt="image" src="https://github.com/user-attachments/assets/8463a85b-9578-491f-8a81-979ca30cfd06" />
-<img width="400" height="177" alt="image" src="https://github.com/user-attachments/assets/172a6647-a495-414e-b25a-3b8e7ee99a27" />
+by default, Soanr qube runs on port 9000. Open the browser and paste the PublicIp address of the ec2 instance along with the port number. Hit enter.
 
 - Logging into Sonarqube
 Enter the User name & password 
-<img width="800" height="386" alt="image" src="https://github.com/user-attachments/assets/e7c1fd50-f1f8-4c88-af22-04f106c828e9" />
 
 - updating the password
 User name & password - admin (for demo purposes)
-<img width="1200" height="442" alt="image" src="https://github.com/user-attachments/assets/e26f7abf-b467-4cc1-bb9f-2eeec2e38b5c" />
-
-- Sonarqube console page
-<img width="800" height="399" alt="image" src="https://github.com/user-attachments/assets/a3fc5a96-9b2e-45be-9029-ff5ef66283ef" />
 
 - To integrate Sonarqube with Jenkins, we need to generate sonarqube token
 Go to the administrator > my account
-<img width="1200" height="597" alt="image" src="https://github.com/user-attachments/assets/4ae2a8c8-c5ef-42e4-abce-cf977540ef7f" />
 
 - Generating token
 Enter a token name and click generate
-<img width="1600" height="708" alt="image" src="https://github.com/user-attachments/assets/23c6c7eb-08c9-4deb-81d8-9872308807a1" />
-<img width="1600" height="378" alt="image" src="https://github.com/user-attachments/assets/ed2de331-259a-4de8-b86a-3d6c8b4754fe" />
 
 - Add the token to the Jenkins
 Go to Jenkins > Manage Jenkins > Manage credentials
 
-<img width="1600" height="796" alt="image" src="https://github.com/user-attachments/assets/eb0ebc2c-fcf3-443d-b6e0-bc776aa6d813" />
-<img width="1200" height="497" alt="image" src="https://github.com/user-attachments/assets/2dc670f5-a29d-4fb1-9aa9-f9e078fad866" />
-<img width="1200" height="379" alt="image" src="https://github.com/user-attachments/assets/1b4332ea-66dc-4184-ac70-a0d2b9894dd5" />
-<img width="1200" height="390" alt="image" src="https://github.com/user-attachments/assets/dfa7c2e7-0188-4ce2-a0a2-d0c4fd705d0b" />
-<img width="800" height="403" alt="image" src="https://github.com/user-attachments/assets/c2b343b1-71b5-4f80-aae4-32abdd7f89ed" />
-<img width="1200" height="500" alt="image" src="https://github.com/user-attachments/assets/7827e671-19f1-496f-9c75-fb9441292f2a" />
-<img width="800" height="353" alt="image" src="https://github.com/user-attachments/assets/3ff4f41a-c1c7-4418-b5c3-fc4ae5d55302" />
-<img width="1600" height="501" alt="image" src="https://github.com/user-attachments/assets/ff60f6f8-774e-46d8-9a4f-ca2c9e9c3604" />
+
 
 
 
