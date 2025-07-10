@@ -62,15 +62,10 @@ referenced my github url link and the path to my JenkinsFile as well. I have wri
 ### 5. Installing Docker pipeline plugin
 Go to Manage Jenkins > Plugins > available plugins 
 search for 'Docker Pipeline' and click on Install without restart 
-<img width="1200" height="520" alt="image" src="https://github.com/user-attachments/assets/70f42125-42fc-4f17-adf9-4de3cf0b8b6b" />
-<img width="1600" height="685" alt="image" src="https://github.com/user-attachments/assets/fb123f12-64c7-41bd-8a7b-31fb22e11f64" />
-<img width="1200" height="587" alt="image" src="https://github.com/user-attachments/assets/0bfaba96-1935-4cb9-89c4-a325efe6e867" />
-<img width="800" height="377" alt="image" src="https://github.com/user-attachments/assets/773d102f-62eb-4a19-a0f0-0c6b40cd6911" />
 
 ### 6. Installing Sonar plugin
 Go to Manage Jenkins > Plugins > available plugins 
 search for Sonar, and select 'Sonarqube Scanner' and click on Install without restart 
-<img width="1600" height="806" alt="image" src="https://github.com/user-attachments/assets/f9e90ffd-ed94-4a7b-a5f5-be074d94529a" />
 
 ### 7. Pre-requisites for Sonar qube 
 System Requirements: 
@@ -92,33 +87,21 @@ sudo apt update && sudo apt install unzip -y
 ```
 sudo adduser sonarqube
 ```
-<img width="1800" height="100" alt="image" src="https://github.com/user-attachments/assets/59ed3112-eb1e-413b-9ba6-56a982e13408" />
-<img width="800" height="176" alt="image" src="https://github.com/user-attachments/assets/250b2015-2e43-45cf-8605-5d1f3a310bcf" />
-<img width="1200" height="527" alt="image" src="https://github.com/user-attachments/assets/b8436050-8118-4bf5-b458-eceb73106fdf" />
 
 - Download the binaries using wget
 ```
 wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.4.1.88267.zip
 ```
-<img width="1600" height="403" alt="image" src="https://github.com/user-attachments/assets/70e4ea6a-cf31-4e40-802a-efed52c6f552" />
-
 - now unzip the downloaded sonarqube binary
 ```
 unzip *
 ```
-<img width="1800" height="125" alt="image" src="https://github.com/user-attachments/assets/3a6c6a7a-cd78-4e47-b2f0-b2d28a86f19f" />
-<img width="400" height="203" alt="image" src="https://github.com/user-attachments/assets/7533cd7e-fa89-46fc-8522-a286d526a962" />
-<img width="1600" height="122" alt="image" src="https://github.com/user-attachments/assets/ddfe6553-6513-4cdf-833e-ec7e216f96b3" />
-
 
 - Assign permssions
 ``` 
 chown -R sonarqube:sonarqube /opt/sonarqube
 chmod -R 775 /opt/sonarqube
 ```
-
-<img width="1200" height="113" alt="image" src="https://github.com/user-attachments/assets/ece3ecc0-7886-4eb7-b253-bd0a17f49d4c" />
-<img width="1200" height="67" alt="image" src="https://github.com/user-attachments/assets/e116f052-5a1c-4fd8-b68e-8a2635a9a84b" />
 
 - start sonar qube
 ```
