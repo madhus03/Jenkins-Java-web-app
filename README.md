@@ -57,7 +57,6 @@ sudo apt-get install jenkins
   
 ### 4. Importing Jenkins file 
 referenced my github url link and the path to my JenkinsFile as well. I have written a declrative Jenkins pipeline. 
-<img width="800" height="402" alt="image" src="https://github.com/user-attachments/assets/3195a96b-ce04-4b5e-a939-a71f8e8cbce5" />
 
 ### 5. Installing Docker pipeline plugin
 Go to Manage Jenkins > Plugins > available plugins 
@@ -111,20 +110,15 @@ cd /opt/sonarqube/bin/linux-x86-64
 
 by default, Soanr qube runs on port 9000. Open the browser and paste the PublicIp address of the ec2 instance along with the port number. Hit enter.
 
-- Logging into Sonarqube
-Enter the User name & password 
+- Logging into Sonarqube : Enter the User name & password 
 
-- updating the password
-User name & password - admin (for demo purposes)
+- updating the password: User name & password - admin (for demo purposes)
 
-- To integrate Sonarqube with Jenkins, we need to generate sonarqube token
-Go to the administrator > my account
+- To integrate Sonarqube with Jenkins, we need to generate sonarqube token : Go to the administrator > my account
 
-- Generating token
-Enter a token name and click generate
+- Generating token: Enter a token name and click generate
 
-- Add the token to the Jenkins
-Go to Jenkins > Manage Jenkins > Manage credentials
+- Add the token to the Jenkins: Go to Jenkins > Manage Jenkins > Manage credentials
 
 
 
