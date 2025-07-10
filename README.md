@@ -67,7 +67,7 @@ search for 'Docker Pipeline' and click on Install without restart
 <img width="1200" height="587" alt="image" src="https://github.com/user-attachments/assets/0bfaba96-1935-4cb9-89c4-a325efe6e867" />
 <img width="800" height="377" alt="image" src="https://github.com/user-attachments/assets/773d102f-62eb-4a19-a0f0-0c6b40cd6911" />
 
-### 6. Installing Soanr plugin
+### 6. Installing Sonar plugin
 Go to Manage Jenkins > Plugins > available plugins 
 search for Sonar, and select 'Sonarqube Scanner' and click on Install without restart 
 <img width="1600" height="806" alt="image" src="https://github.com/user-attachments/assets/f9e90ffd-ed94-4a7b-a5f5-be074d94529a" />
@@ -87,7 +87,7 @@ Hardware Recommendations:
 sudo apt update && sudo apt install unzip -y
 ```
 
--adding user sonar qube automatically creates the home directory, sets permissions, and prompts for things like a password and full name.
+- adding user sonar qube automatically creates the home directory, sets permissions, and prompts for things like a password and full name.
 
 ```
 sudo adduser sonarqube
@@ -96,13 +96,13 @@ sudo adduser sonarqube
 <img width="800" height="176" alt="image" src="https://github.com/user-attachments/assets/250b2015-2e43-45cf-8605-5d1f3a310bcf" />
 <img width="1200" height="527" alt="image" src="https://github.com/user-attachments/assets/b8436050-8118-4bf5-b458-eceb73106fdf" />
 
--Download the binaries using wget
+- Download the binaries using wget
 ```
 wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.4.1.88267.zip
 ```
 <img width="1600" height="403" alt="image" src="https://github.com/user-attachments/assets/70e4ea6a-cf31-4e40-802a-efed52c6f552" />
 
--now unzip the downloaded sonarqube binary
+- now unzip the downloaded sonarqube binary
 ```
 unzip *
 ```
@@ -131,6 +131,7 @@ cd /opt/sonarqube/bin/linux-x86-64
 
 by default, Soanr qube runs on port 9000. Open the browser and paste the PublicIp address of the ec2 instance along with the port number. Hit enter. 
 <img width="1800" height="134" alt="image" src="https://github.com/user-attachments/assets/eb074952-a77d-419e-9de2-402beea3631a" />
+
 Sonar qube is starting..... 
 <img width="400" height="183" alt="image" src="https://github.com/user-attachments/assets/8463a85b-9578-491f-8a81-979ca30cfd06" />
 <img width="400" height="177" alt="image" src="https://github.com/user-attachments/assets/172a6647-a495-414e-b25a-3b8e7ee99a27" />
@@ -154,6 +155,25 @@ Go to the administrator > my account
 Enter a token name and click generate
 <img width="1600" height="708" alt="image" src="https://github.com/user-attachments/assets/23c6c7eb-08c9-4deb-81d8-9872308807a1" />
 <img width="1600" height="378" alt="image" src="https://github.com/user-attachments/assets/ed2de331-259a-4de8-b86a-3d6c8b4754fe" />
+
+- Add the token to the Jenkins
+Go to Jenkins > Manage Jenkins > Manage credentials
+
+<img width="1600" height="796" alt="image" src="https://github.com/user-attachments/assets/eb0ebc2c-fcf3-443d-b6e0-bc776aa6d813" />
+<img width="1200" height="497" alt="image" src="https://github.com/user-attachments/assets/2dc670f5-a29d-4fb1-9aa9-f9e078fad866" />
+<img width="1200" height="379" alt="image" src="https://github.com/user-attachments/assets/1b4332ea-66dc-4184-ac70-a0d2b9894dd5" />
+<img width="1200" height="390" alt="image" src="https://github.com/user-attachments/assets/dfa7c2e7-0188-4ce2-a0a2-d0c4fd705d0b" />
+<img width="800" height="403" alt="image" src="https://github.com/user-attachments/assets/c2b343b1-71b5-4f80-aae4-32abdd7f89ed" />
+<img width="1200" height="500" alt="image" src="https://github.com/user-attachments/assets/7827e671-19f1-496f-9c75-fb9441292f2a" />
+<img width="800" height="353" alt="image" src="https://github.com/user-attachments/assets/3ff4f41a-c1c7-4418-b5c3-fc4ae5d55302" />
+<img width="1600" height="501" alt="image" src="https://github.com/user-attachments/assets/ff60f6f8-774e-46d8-9a4f-ca2c9e9c3604" />
+
+
+
+
+
+
+
 
 
 
