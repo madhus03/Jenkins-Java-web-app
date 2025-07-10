@@ -18,8 +18,11 @@ End-to-end Jenkins pipeline will automate the entire CI/CD process for a Java ap
 
 ### 2. Installing Jenkins on the Ec2 Instance 
 - Run the following commands
-  <pre> ``` sudo apt update 
-sudo apt install openjdk-17-jre ``` </pre>
+```
+sudo apt update 
+sudo apt install openjdk-17-jre
+
+```
 
 
 
