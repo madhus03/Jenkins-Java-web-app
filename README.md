@@ -218,8 +218,44 @@ Why operator - So, whenever you are Installing any kubernetes controller, you sh
   ```
   kubectl get csv -n operators
   ```
-  
 
+### 15. Installation of Argo cd Controller 
+
+- Go to argo cd operator docs > basics > copy the Argo cd cluter with default configuration.
+- go to your laptop terminal > create vim argocd-basic.yml
+- paste the config and save it
+- now,
+  ```
+  Kubectl apply -f argocd-basic.yml
+  ```
+- Argocd controller will be up and running in some time.
+
+### 16. Configuring the Application details on to the Argocd UI 
+
+- On your laptop enter the service command
+  ```
+  Kubectl get svc
+  ```
+- Now, edit the ``` Kubectl edit svc example-argocd-server```. This is for changing the type from Cluster IP to Nodeport to access the Argocd server on the browser.
+- Once again run ``` Kubectl edit svc example-argocd-server``` and you can verify the type for the argocd server should be changed to nodeport.
+- To get the url on a minikube, Minikube itself gives a service url.
+```
+Minikube service list
+```
+- From the list, click on the url for the argocd server. 
+
+- you will be redirected to the argocd server and you will be prompted to enter username and password.
+- username 'admin' and password has to be copied from the secrets which is in the kubernetes cluster. Go to the terminal and tyep ``` kubectl get secret ```, refer the name - which is 'example-argocd-cluster' and type ``` Kubectl edit secret example-argocd-cluster ```
+- copy the password. this password is base64 encrypted. 
+- To decrypt this, type ``` echo 'copied encrypted password'= | base64 -d ```
+- Now you will get the decrypted password. Copy it and paste on the argocd ui. The Login will be successful
+
+  Applying Application details :
+  - click create application
+  - App name 'test' > project name 'default' > sync policy ' automatic' > under source, mention the repo url > branch as 'head' > mention the path to the manifest file on your git > under destination, provide the kubernetes cluster url > provide namespace of the argocd controller > click create
+  - Argocd will try to fetch the information and deploy the app on kubernetes cluster. 
+
+  
 
 
 
