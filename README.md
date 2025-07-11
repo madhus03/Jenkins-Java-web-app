@@ -116,9 +116,112 @@ by default, Soanr qube runs on port 9000. Open the browser and paste the PublicI
 
 - To integrate Sonarqube with Jenkins, we need to generate sonarqube token : Go to the administrator > my account
 
-- Generating token: Enter a token name and click generate
+- Generating token: Enter a token name and click generate. Copy it. 
 
-- Add the token to the Jenkins: Go to Jenkins > Manage Jenkins > Manage credentials
+- Add the token to the Jenkins: Go to Jenkins > Manage Jenkins > Manage credentials > system > Global credentials > add credentials > add the sonarqube token ( we will use this token in the Jenkinsfile)
+
+### 9. Installing Docker on the EC2 instance. 
+
+- On the EC2 instance, switch to root user and execute the following command. 
+
+```
+sudo apt update
+sudo apt install docker.io
+```
+- Grant Jenkins user and Ubuntu user permission to docker deamon.
+
+```
+sudo su - 
+usermod -aG docker jenkins
+usermod -aG docker ubuntu
+systemctl restart docker
+```
+- Restart the Jenkins. (It's always a good practice to restart the Jenkins after installing plugins or whenever making config changes). After restarting, Jenkins will ask for user name and password, enter it and select the 'keep me signed in' option. 
+
+- The Docker agent configuration has been set successfully.
+
+### 10. Adding the pom.xml file (Project Object Model file)
+
+- on your git repo > Go to the java-maven-sonar-argocd-helm-k8s/spring-boot-app
+- create a file pom.xml and write the XML file. this will tell the MAven target how to build the file, downloading the dependencies, plugins and also explains about the project structure and metadata. 
+
+### 11. Create a deployment yaml file for the spring boot application on the same git repository 
+
+- Create a folder named spring-boot-app-manisfests > deployment.yaml 
+- within this yaml file, mention the <replaceImageTag>, so that during the update and deploy stage, the shell script will take the image tag as per the Docker registry and update it to the yaml file.
+
+### 12. Adding Docker Registry credentials and Git token to the Jenkins. 
+
+Docker Registry:
+
+- during the Build and push Docker image stage, the Jenkins needs the Docker Registry credentials in order to push the image.
+- Go to Jenkins > manage jenkins > manage credentials > stores scoped to jenkins > system > global credentials > add new credentials
+
+- New credentials : kind as 'username and password' > scope 'global' > username 'mathangi03' > password '********' > id as 'docker-cred'. Click create.
+- Docker credentials are stored on to the Jenkins credentials store.
+
+Git : 
+
+- Go to github > settings > developer settings > personal access tokens > token classic . It might prompt you enter the password.
+- New personal access token : Note 'Jenkins' > Expiration ' 7 days' > select scopes for the personal tokens > generate token. Copy the token. 
+
+- During the Update and deploy stage, the Git credentials and git token are needed for the shell script to update the manifests file which is on the git.
+- Go to Jenkins > manage jenkins > manage credentials > stores scoped to jenkins > system > global credentials > add new credentials
+
+- New credentials : Kind as 'secret text' > scope 'global' > secret ' paste the github token' > id ' > github' > click create.
+- Github token is stored on to the Jenkins credentials store.
+
+Restart the Jenkins !!!!
+
+
+### 13. Installating MiniKube on the laptop (Kubernetes deployment)
+
+Minikube - A Local kubernetes. A Docker or a virtual machine environment is needed for starting the local kubernetes. 
+
+Pre-requisites : 
+1. 2 CPUs or more
+2. 2 GB of Free memory
+3. 20 GB of free disk space
+4. Internet connection
+5. Container or virtual machine manager (such as Dcoker, Hyperkit, Hyper-V, podman, Virtualbox, VMware Fusion/Workstation)
+
+Based on the target platform and architecture, select the options on the minikube page and get the installation command. 
+
+- from the laptop terminal with admin access(not as root user), run : ``` minikube start ``` and for the driver mention :-- memory=4098 --driver=hyperkit
+
+```
+minikube start --memory=4098 --driver=hyperkit
+```
+
+This will install the Kubernetes cluster. (For the first time, it might take some time) 
+
+### 14. Insallation of Operator 
+
+Why operator - So, whenever you are Installing any kubernetes controller, you should always go with the operator approach. Operators will manage the lifecycle of the kubernetes controllers. In future, if there are any updates to the controller, or version changes, telemetry related info - it will be taken care by operators. 
+
+- Go to the operatorhub.io > serach for argocd > click install - https://operatorhub.io/operator/argocd-operator. Follow the steps
+
+  1. Installation of OLM (operator Lifecyle manager)
+     
+  ```
+  curl -sL https://github.com/operator-framework/operator-lifecycle-manager/releases/download/v0.32.0/install.sh | bash -s v0.32.0
+  ```
+  2. Installing the operator
+ 
+  ```
+  kubectl create -f https://operatorhub.io/install/argocd-operator.yaml
+  ```
+  This Operator will be installed in the "operators" namespace and will be usable from all namespaces in the cluster.
+
+  3. After install, watch your operator come up using next command.
+ 
+  ```
+  kubectl get csv -n operators
+  ```
+  
+
+
+
 
 
 
